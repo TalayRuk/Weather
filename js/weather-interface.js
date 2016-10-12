@@ -1,6 +1,10 @@
 var apiKey = require('./../.env').apiKey;
+var Weather = require('./../js/weather.js').weatherModule;
 //API key from OpenWeatherMap.org (sign in to get API key access)
 $(document).ready(function() {
+  var currentWeatherObject = new Weather();
+  currentWeatherObject.getWeather();
+  
   $('#weatherLocation').click(function() {
     //Use the click handler to the btn to get the city name entered into our form
     var city = $('#location').val();
