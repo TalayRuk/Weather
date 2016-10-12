@@ -7,9 +7,9 @@ $(document).ready(function() {
   $('#weatherLocation').click(function() {
     //Use the click handler to the btn to get the city name entered into our form
     var city = $('#location').val();
-    $('#location').val("");
-    currentWeatherObject.getWeather(city);
-    $('.showWeather').text("The city you have chosen is " + city + ".");
+    var humidity = currentWeatherObject.getWeather(city);
+    $('.showWeather').text("The humidity in " + city + " is " + humidity + "%");
+    console.log(humidity);
     // ***should run to c if there's any error b4 start API request***
     // $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
     //   console.log(response);
@@ -27,11 +27,11 @@ $(document).ready(function() {
               //Remember that AJAX stands for Asynchronous JavaScript And XML. When an AJAX request is made, the code after it will run before the the callback code. The asynchronous nature of programming in JavaScript can be confusing at times, but it's extremely powerful, as it prevents the user interface from locking up during long-running events like AJAX requests, which often take half a second or more to complete.
 
               //Refactor our code Using PROMISES. The *then()* method of a promise is called when a promise enters the fulfilled state
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response) {
-     $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%");
-   }).fail(function(error) {//add Error .fail() method when a promise enters the rejected state.An object representing the error is passed into the fail method if it is called.
-        $('.showWeather').text(error.responseJSON.message);
-   });
+//   $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response) {
+//      $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%");
+//    }).fail(function(error) {//add Error .fail() method when a promise enters the rejected state.An object representing the error is passed into the fail method if it is called.
+//         $('.showWeather').text(error.responseJSON.message);
+//    }); * final changed .. moved to logic.js part
   });
 });
 
