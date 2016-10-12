@@ -1,0 +1,15 @@
+$gray : #d3d3d3;
+$green : #75B975;
+$blue : #3399ff;
+
+.box {
+  background: $green;
+  border: 3px solid $grey;
+  padding: 40px 80px;
+  .button {
+    font-weight: bold;
+    text-align: center;
+    background: $blue;
+    color: white;
+  }
+}
